@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+{% load static %}
+  <div class="container">
+    <div class="row">
+      <h1>Об авторе проекта</h1>
+      <p>Привет, я {{ user.get_full_name }}. По специальности инженер-строитель. Сейчас учусь програмировать на Python. Програмирование для меня- абсолютно новая сфера деятельности. 
+        В мире програмирования ощущаю себя новичком.
+      </p>
+    </div>
+    <article>
+      <div class="container">
+        <div class="row">
+          <div>
+            <h6>Это для любителей котиков, уточек, кружек.</h6>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="{% static 'img/i (1).jpg' %}" width="140" height="120" class="d-inline-block align-top" alt="">
+            <img src="{% static 'img/12775072.jpg' %}" width="140" height="120" class="d-inline-block align-top" alt="">
+          </div>
+        </div>
+      </div>
+    </article>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5>Контакты для связи</h5>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <li>email: <a href="mailto: vlad7632@gmail.com">vlad7632@gmail.com</a></li>
+          <li><a href="https://github.com/vlad7632">мой аккаунт на Github</a></li>
+          <li><a href="https://instagram.com/vlad76322020/" title="Инстаграмм" class="btn-social btn-social_in">Инстаграм</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 
