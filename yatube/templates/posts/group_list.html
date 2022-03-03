@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block title %} Записи сообщества {{ group }} {% endblock title %}
-{% block header %}{{ group }}{% endblock %}
+{% block header %} {{ group }} {% endblock %}
 {% block content %}
   <div class="container py-5">
-    <h1>{{ group.title }}</h1>
-    <p>{{ group.description }}</p>
+    <h1> {{ group.title }} </h1>
+    <p> {{ group.description }} </p>
     {% for post in page_obj %}
       <ul>
         <li>
@@ -14,7 +14,7 @@
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
       </ul>      
-      <p>{{ post.text }}</p>         
+      <p> {{ post.text }} </p>         
       {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
   </div>
