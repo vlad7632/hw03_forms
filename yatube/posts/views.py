@@ -45,18 +45,10 @@ def post_detail(request, post_id):
 
 @login_required
 def post_create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            text = form.cleaned_data['text']
-            group = form.cleaned_data['group']
-            author = request.user
-            Post.objects.create(
-                text=text,
-                group=group,
-                author=author,
-            )
-            return redirect('posts:profile', request.user)
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        Post.objects.create(**form.cleaned_data, author=request.user)
+        return redirect('posts:profile', request.user)
     else:
         form = PostForm()
     return render(request, 'posts/create_post.html', {'form': form})
@@ -65,7 +57,6 @@ def post_create(request):
 @login_required
 def post_edit(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    form = PostForm(instance=post)
     if request.user != post.author:
         return redirect('posts:post_detail', post.id)
     form = PostForm(request.POST or None, instance=post)
