@@ -25,7 +25,7 @@
           <a href="{% url 'posts:profile' post.author %}">все посты пользователя</a><br>
         </li>
         <li class="list-group-item">
-        {% if user.username == request.user.username %}
+        {% if user == post.author %}
           <a href="{% url 'posts:update_post' post.id %}">Редактировать пост</a>
         {% endif %}
         </li>
